@@ -1,0 +1,30 @@
+body {
+    background-color: #0B0E11;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    border: 0;
+}
+
+.top {
+    background-color: black;
+    height: 180px;
+}
+
+.icon {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.div-menu-crypto {
+    display: flex;
+}
+
+.button-menu {
+    font-size: xx-large;
+    border: 0;
+    background-color: transparent;
+    color: white;
+}
