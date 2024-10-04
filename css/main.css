@@ -34,10 +34,10 @@ body {
 
 .div-menu-crypto {
     display: flex;
+    position: absolute;
     justify-content: end;
     padding-right: 15px;
     height: 100%;
-    position: absolute;
     top: 0;
     right: 0;
 }
@@ -46,11 +46,11 @@ body {
     display: flex;
     font-size: xx-large;
     border: 0;
-    background-color: transparent;
     cursor: pointer;
-    color: gray;
     height: 100%;
     align-items: center;
+    color: gray;
+    background-color: transparent;
 }
 
 .div-exit-menu-crypto {
@@ -84,4 +84,36 @@ body {
 .content-menu.open {
     display: block;
     opacity: 1;
+}
+
+.assets-cripto a {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 45px;
+}
+
+.assets-cripto p {
+    position: absolute;
+    font-size: 22px;
+    font-family: 16px BinancePlex, Arial, sans-serif;
+    top: 73px;
+    left: 70px;
+    background-color: transparent;
+    color: #EAECEF;
+}
+
+.assets-cripto a:hover {
+    background-color: grey;
+}
+
+.title-menu-assets {
+    position: absolute;
+    top: 0;
+    padding-left: 30px;
+}
+
+.title-menu-assets h1 {
+    color: white;
+    font-family: 16px BinancePlex, Arial, sans-serif;
 }
