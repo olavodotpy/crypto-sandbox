@@ -1,55 +1,71 @@
 from django.shortcuts import render
-from typing import Dict, List, Any
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+from typing import Dict
 import requests
 
 
 
 
 
-# Vou criar um classe que vai conter a manipulação dessa API como:
-# Atributo que guarda a URL principal da REST
-# Métodos que façam requisição de path e query
-# Métodos que retornan(get) resultados e valores desejados
-# que será usados no get do APIView
+class APIHandler:
+    """
+        handl = APIHandler("URL")
+    
+    param = {
+        "ids": "bitcoin",
+        "vs_currencies": "usd"
+    }
 
-class CryptoAPIHandler:
+    path = handl.get_path_URL("simple/price")
+
+    handl.printResponse(param)
+
+    """
     def __init__(self, base_URL) -> None:
         self.base_URL = base_URL
 
 
     def get_base_URL(self) -> str:
         return self.base_URL
+
+
+    def get_path_URL(self, path_param) -> str:
+        return f"{self.base_URL}/{path_param}"
+
+
+    def search_object(self) -> dict:
+        pass
+
+
+    def JSON_response(self, path, query_params: Dict = {}) -> dict:
+        try:
+            response = requests.get(path, params=query_params)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as _:
+            return {"error": _}
+
+
+    def printResponse(self, query_params: Dict = {}) -> str:
+        print(str(self.JSON_response(path, query_params)))
+
+
+
+class DataTrigger(APIView):
     
+    def get(self, request):
+        # Making the request to the external API
+        handl = APIHandler("https://api.coingecko.com/api/v3")
 
-    def add_path_in_URL(self, path_param):
-        full_URL = f"{self.base_URL}/{path_param}"
-        return full_URL
+        path = handl.get_path_URL("simple/price")
 
-    
-    def add_query_params(self, path, query_pararms):
-        full_URL = f"{self.base_URL}/{path}"
-        response = requests.get(full_URL, params=query_pararms)
-        return response.json()
+        param = {
+            "ids": "bitcoin",
+            "vs_currencies": "usd",
+        }
 
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    pass
-    # tratar para sair da melhor forma
-
-
-    # API_hardl = CryptoAPIHandler("https://api.coingecko.com/api/v3")
-    # param = {
-    #     'ids': "bitcoin",
-    #     'vs_currencies': "usd",
-    # }
-    # r = API_hardl.add_query_params("simple/price", param)
-
-    # print(r)
+        return Response(handl.JSON_response(param), status=status.HTTP_400_BAD_REQUEST)

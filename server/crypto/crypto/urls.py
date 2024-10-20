@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from crypto.views import DataTriggerd
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/shipping-kitten/', DataTrigger.as_view(), name='trigger')
 ]
