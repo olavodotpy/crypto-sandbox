@@ -15,11 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from crypto.views import DataTriggerd
+from django.urls import path, include
+from django.http import HttpResponse
 
+
+#URLs do /projeto
+
+def home(request):
+    return HttpResponse("Bem-vindo à página inicial!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/shipping-kitten/', DataTrigger.as_view(), name='trigger')
+    path('', include('binance_crypto.urls')),
+    path('', home),
 ]

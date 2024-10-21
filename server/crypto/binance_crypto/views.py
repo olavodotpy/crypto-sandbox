@@ -68,4 +68,6 @@ class DataTrigger(APIView):
             "vs_currencies": "usd",
         }
 
-        return Response(handl.JSON_response(param), status=status.HTTP_400_BAD_REQUEST)
+        response = handl.JSON_response(path, param)
+
+        return Response(response)
