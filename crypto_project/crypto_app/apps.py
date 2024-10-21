@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BinanceCryptoConfig(AppConfig):
+class CryptoAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'binance_crypto'
+    name = 'crypto_app'

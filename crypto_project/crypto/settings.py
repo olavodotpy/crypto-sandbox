@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'binance_crypto',
     'rest_framework',
     'corsheaders',
+    'crypto_app.apps.CryptoAppConfig', 
 ]
 
 REST_FRAMEWORK = {

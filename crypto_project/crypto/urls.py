@@ -20,12 +20,11 @@ from django.http import HttpResponse
 
 
 #URLs do /projeto
-
 def home(request):
-    return HttpResponse("Bem-vindo à página inicial!")
+    return HttpResponse("Welcome!!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('binance_crypto.urls')),
+    path('', include('crypto_app.urls')),
     path('', home),
 ]

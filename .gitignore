@@ -1,32 +1,15 @@
 # Ambiente virtual
-src/
 env/
 venv/
-*.pyc
 __pycache__/
 
 # Arquivos de configuração
 *.sqlite3
 *.db
 
-# Backup
-*~
-*.bak
-
-# Logs
-*.log
-
-# Cache
-*.cache
-
 # IDE
 .idea/
 .vscode/
-
-# Configurações do Django
-*.pot
-*.mo
-*.py[cod]
 
 # More
 # *.DS_Store
