@@ -1,5 +1,5 @@
-# binance-crypto-prices
-A simple website that uses the Binance API.
+# cryptocurrency_API
+A simple website that uses the Cryptocurrency API.
 
 Entendo o framework Django:
 
